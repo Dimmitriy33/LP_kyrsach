@@ -1,0 +1,28 @@
+.586
+.model flat, stdcall
+includelib libucrt.lib
+includelib kernel32.lib
+includelib ../LP_LIB/Debug/LP_Lib.lib
+ExitProcess PROTO : DWORD
+EXTRN Concat		: PROC
+EXTRN ConvertToChar		: PROC
+EXTRN Copy		: PROC
+EXTRN ConsoleWrite		: PROC
+
+
+.stack 4096
+.const
+	L0 BYTE 'bidlo', 0
+	L1 DWORD 00000000
+.data
+	mainx			DWORD 0
+
+.code
+main PROC
+	push		offset L0
+	pop			mainx
+
+	push		L1
+	call		ExitProcess
+main ENDP
+end main

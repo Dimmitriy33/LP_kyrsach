@@ -1,0 +1,72 @@
+bzint function operationssum ( bzint x , bzint y, bzint z, bzint m )
+{
+declare bzint result;
+result = x + y + z + m;
+return result;
+}
+
+main
+{
+declare bzint function compare(str a, str b);
+declare bzint function strln(str p);
+declare str nameone;
+declare str nametwo;
+declare str temp;
+declare bzint numone;
+declare bzint numtwo;
+declare bzint comp;
+declare bzint strlength;
+declare bzint lessorequal;
+declare bzint moreorequal;
+declare bzint less;
+declare bzint notequal;
+declare bzint sum;
+temp = 'unknown';
+numone = 10;
+numtwo = 5;
+
+if (numone > numtwo)
+[
+temp = 'numone more then numtwo';
+out temp;
+]
+
+if (numone ^ numtwo)
+[
+temp = 'numone equal numtwo';
+out temp;
+]
+else
+[
+temp = 'numone not equal numtwo';
+out temp;
+]
+
+lessorequal = numone $ numtwo;
+moreorequal = numone % numtwo;
+less = numone < numtwo;
+notequal = numone & numtwo;
+
+temp = 'sum of operations is';
+sum = operationssum(lessorequal, moreorequal, less, notequal);
+out temp;
+out sum;
+
+nameone = 'dmitriy';
+nametwo = 'not dmitriy';
+comp = compare(nameone, nameone);
+temp = 'dmitriy equal dmitriy';
+out temp;
+out comp;
+
+comp = compare(nameone, nametwo);
+temp = 'dmitriy equal not dmitriy';
+out temp;
+out comp;
+
+temp = 'length of dmitriy';
+out temp;
+strlength = strln(nameone);
+out strlength;
+return 0;
+};
