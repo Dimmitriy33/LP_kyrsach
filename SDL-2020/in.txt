@@ -3,7 +3,7 @@ bzint function operationssum ( bzint x , bzint y, bzint z, bzint m )
 declare bzint result;
 result = x + y + z + m;
 return result;
-}
+};
 
 main
 {
