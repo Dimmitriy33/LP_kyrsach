@@ -77,7 +77,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		CG::Generation WriteToOut = CG::Generation(lextable, idtable, parm.out);
 		CG::Generation WriteToAsm = CG::Generation(lextable, idtable, L"../asm/asm.asm");
 		WriteToOut.Start(log);
-		*log.stream << "\n  ==============############             Код успешно сгенерирован           ############==============\n";
+		*log.stream << "\n  ==============############             Код успешно сгенерирован          ############==============\n";
 		WriteToAsm.Start(log);
 		#endif // GENERATION
 

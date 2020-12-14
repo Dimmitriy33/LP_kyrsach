@@ -1,7 +1,4 @@
 
-//#include "CG.h"
-//
-
 #include "pch.h"
 #include "CG.h"
 

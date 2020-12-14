@@ -15,6 +15,7 @@ void SA::SemanticAnalyzer::Start(const Log::LOG& log)
 	Types();
 	FuncReturn();
 	CorrectAmountOfParms();
+	CheckIfParams();
 	*log.stream << "\n";
 	*log.stream << "  ==============############    —емантический анализ выполнен без ошибок   ############==============\n";
 	*log.stream << "\n";
@@ -39,7 +40,6 @@ void SA::SemanticAnalyzer::CheckReturn()
 			main = true;
 }
 
-//todo +-+-+-+-+-+-+- OK +-+-+-+-+-+-+-
 void SA::SemanticAnalyzer::ParmsOfFunc()
 {
 	char buf[ID_MAXSIZE];
@@ -82,7 +82,6 @@ void SA::SemanticAnalyzer::ParmsOfFunc()
 		}
 }
 
-//todo +-+-+-+-+-+-+- OK +-+-+-+-+-+-+-
 void SA::SemanticAnalyzer::ParmsOfStandFunc()
 {
 	for (int i = 0; i < lextable.size; i++)
@@ -124,12 +123,13 @@ void SA::SemanticAnalyzer::ParmsOfStandFunc()
 		}
 }
 
-//todo +-+-+-+-+-+-+- OK +-+-+-+-+-+-+-
 void SA::SemanticAnalyzer::Types()
 {
 	IT::IDDATATYPE datatype;
 	for (int i = 0; i < lextable.size; i++) {
 		if (lextable.table[i].lexeme == LEX_EQUALS) {
+			if (lextable.table[i + 2].lexeme == LEX_MINUS)
+				throw ERROR_THROW_SEM(712, lextable.table[i].sn);
 			datatype = idtable.table[lextable.table[i - 1].idxTI].iddatatype;
 			while (lextable.table[i].lexeme != LEX_SEMICOLON) {
 				i++;
@@ -160,7 +160,6 @@ void SA::SemanticAnalyzer::Types()
 	}
 }
 
-//todo +-+-+-+-+-+-+- OK +-+-+-+-+-+-+-
 void SA::SemanticAnalyzer::FuncReturn()
 {
 	for (int i = 0; i < lextable.size; i++)
@@ -174,7 +173,6 @@ void SA::SemanticAnalyzer::FuncReturn()
 		}
 }
 
-//todo +-+-+-+-+-+-+- OK +-+-+-+-+-+-+-
 void SA::SemanticAnalyzer::CorrectAmountOfParms()
 {
 	std::string buf;
@@ -205,5 +203,21 @@ void SA::SemanticAnalyzer::CorrectAmountOfParms()
 			if (funcparms != parms)
 				throw ERROR_THROW_SEM(701, lextable.table[i].sn);
 		}
+}
+
+void SA::SemanticAnalyzer::CheckIfParams()
+{
+	for (int i = 0; i < lextable.size; i++)
+	{
+		if (lextable.table[i].lexeme == LEX_IF)
+		{
+			if (idtable.table[lextable.table[i + 2].idxTI].iddatatype != IT::IDDATATYPE::BZINT ||
+				idtable.table[lextable.table[i + 4].idxTI].iddatatype != IT::IDDATATYPE::BZINT)
+					throw ERROR_THROW_SEM(711, lextable.table[i].sn);
+				
+		}
+
+
+	}
 }
 

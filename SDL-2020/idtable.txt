@@ -26,16 +26,15 @@ index                name               scope      type   id type      lexTable 
   22            notequal                main    bzint         v             195
   23                 sum                main    bzint         v             200
   24                  L0                          str         l             109
-  25                  L1                        bzint         l             131
+  25                  L1                        bzint         l             113
   26                  L2                        bzint         l             117
   27                  L3                          str         l             128
   28                  L4                          str         l             143
-  29                  L5                          str         l             146
-  30                  L6                          str         l             153
-  31                  L7                          str         l             185
-  32                  L8                          str         l             204
-  33                  L9                          str         l             208
-  34                 L10                          str         l             219
-  35                 L11                          str         l             236
-  36                 L12                          str         l             246
-  37                 L13                        bzint         l             261
+  29                  L5                          str         l             153
+  30                  L6                          str         l             185
+  31                  L7                          str         l             204
+  32                  L8                          str         l             208
+  33                  L9                          str         l             219
+  34                 L10                          str         l             236
+  35                 L11                          str         l             246
+  36                 L12                        bzint         l             261
