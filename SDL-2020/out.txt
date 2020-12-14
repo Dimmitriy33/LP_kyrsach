@@ -86,49 +86,49 @@ main PROC
 	pop		ebx
 	pop		eax
 	cmp		eax, ebx
-	jna		FALSE26
+	jna		FALSE23
 	push		offset L3
 	pop			_maintemp
 
 	push		_maintemp
 	call		_out
 
-FALSE26: 
+FALSE23: 
 	push		_mainnumone
 	push		_mainnumtwo
 	pop		ebx
 	pop		eax
 	cmp		eax, ebx
-	jne		FALSE31
-	je		TRUE31
-TRUE31: 
+	jne		FALSE28
+	je		TRUE28
+TRUE28: 
 	push		offset L4
 	pop			_maintemp
 
 	push		_maintemp
 	call		_out
 
-	jmp		IFOUT31
-FALSE31: 
+	jmp		IFOUT28
+FALSE28: 
 	push		offset L5
 	pop			_maintemp
 
 	push		_maintemp
 	call		_out
 
-IFOUT31: 
+IFOUT28: 
 	push		_mainnumone
 	push		_mainnumtwo
 
 	pop		ebx
 	pop		eax
 	cmp		eax, ebx
-	jbe		LESSOREQUALS41
+	jbe		LESSOREQUALS38
 	push		0
-	jna		MORE41
-LESSOREQUALS41:
+	jna		MORE38
+LESSOREQUALS38:
 	push		1
-MORE41:
+MORE38:
 	pop			_mainlessorequal
 
 	push		_mainnumone
@@ -137,12 +137,12 @@ MORE41:
 	pop		ebx
 	pop		eax
 	cmp		eax, ebx
-	jae		MOREOREQUAL42
+	jae		MOREOREQUAL39
 	push		0
-	jnb		LESS42
-MOREOREQUAL42:
+	jnb		LESS39
+MOREOREQUAL39:
 	push		1
-LESS42:
+LESS39:
 	pop			_mainmoreorequal
 
 	push		_mainnumone
@@ -151,12 +151,12 @@ LESS42:
 	pop		ebx
 	pop		eax
 	cmp		eax, ebx
-	jb		LESS43
+	jb		LESS40
 	push		0
-	ja		MORE43
-LESS43:
+	ja		MORE40
+LESS40:
 	push		1
-MORE43:
+MORE40:
 	pop			_mainless
 
 	push		_mainnumone
@@ -165,12 +165,12 @@ MORE43:
 	pop		ebx
 	pop		eax
 	cmp		eax, ebx
-	jne		NOTEQUAL44
+	jne		NOTEQUAL41
 	push		0
-	je		EQUAL44
-NOTEQUAL44:
+	je		EQUAL41
+NOTEQUAL41:
 	push		1
-EQUAL44:
+EQUAL41:
 	pop			_mainnotequal
 
 	push		offset L6

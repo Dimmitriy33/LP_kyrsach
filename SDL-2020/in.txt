@@ -11,9 +11,9 @@ declare bzint function compare(str a, str b);
 declare bzint function strln(str p);
 declare str nameone;
 declare str nametwo;
-declare str temp;
-declare bzint numone;
-declare bzint numtwo;
+declare str temp = 'unknown';
+declare bzint numone = 10;
+declare bzint numtwo = 5;
 declare bzint comp;
 declare bzint strlength;
 declare bzint lessorequal;
@@ -21,9 +21,6 @@ declare bzint moreorequal;
 declare bzint less;
 declare bzint notequal;
 declare bzint sum;
-temp = 'unknown';
-numone = 10;
-numtwo = 5;
 
 if (numone > numtwo)
 [

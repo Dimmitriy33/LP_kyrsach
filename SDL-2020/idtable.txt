@@ -13,28 +13,28 @@ index                name               scope      type   id type      lexTable 
    9                   b         maincompare      str         p              47
   10               strln                        bzint         f              53
   11                   p           mainstrln      str         p              56
-  12             nameone                main      str         v             253
-  13             nametwo                main      str         v             230
-  14                temp                main      str         v             249
-  15              numone                main    bzint         v             179
-  16              numtwo                main    bzint         v             180
-  17                comp                main    bzint         v             242
-  18           strlength                main    bzint         v             258
-  19         lessorequal                main    bzint         v             189
-  20         moreorequal                main    bzint         v             190
-  21                less                main    bzint         v             191
-  22            notequal                main    bzint         v             195
-  23                 sum                main    bzint         v             200
-  24                  L0                          str         l             109
-  25                  L1                        bzint         l             113
-  26                  L2                        bzint         l             117
-  27                  L3                          str         l             128
-  28                  L4                          str         l             143
-  29                  L5                          str         l             153
-  30                  L6                          str         l             185
-  31                  L7                          str         l             204
-  32                  L8                          str         l             208
-  33                  L9                          str         l             219
-  34                 L10                          str         l             236
-  35                 L11                          str         l             246
-  36                 L12                        bzint         l             261
+  12             nameone                main      str         v             247
+  13             nametwo                main      str         v             224
+  14                temp                main      str         v             243
+  15                  L0                          str         l              71
+  16              numone                main    bzint         v             173
+  17                  L1                        bzint         l              77
+  18              numtwo                main    bzint         v             174
+  19                  L2                        bzint         l              83
+  20                comp                main    bzint         v             236
+  21           strlength                main    bzint         v             252
+  22         lessorequal                main    bzint         v             183
+  23         moreorequal                main    bzint         v             184
+  24                less                main    bzint         v             185
+  25            notequal                main    bzint         v             189
+  26                 sum                main    bzint         v             194
+  27                  L3                          str         l             122
+  28                  L4                          str         l             137
+  29                  L5                          str         l             147
+  30                  L6                          str         l             179
+  31                  L7                          str         l             198
+  32                  L8                          str         l             202
+  33                  L9                          str         l             213
+  34                 L10                          str         l             230
+  35                 L11                          str         l             240
+  36                 L12                        bzint         l             255
