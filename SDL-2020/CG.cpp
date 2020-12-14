@@ -5,24 +5,22 @@
 #include "pch.h"
 #include "CG.h"
 
-CG::Generator::Generator(LT::LexTable lexT, IT::IdTable idT, wchar_t outfile[PARM_MAX_SIZE])
+CG::Generation::Generation(LT::LexTable lexT, IT::IdTable idT, const wchar_t outfile[PARM_MAX_SIZE])
 {
 	lextable = lexT;
 	idtable = idT;
 	out = std::ofstream(outfile);
 }
 
-void CG::Generator::Start(const Log::LOG& log)
+void CG::Generation::Start(const Log::LOG& log)
 {
 	Head();
 	Constants();
 	Data();
 	Code();
-	*log.stream << "\n  ==============############             Код успешно сгенерирован           ############==============\n";
-	
 }
 
-void CG::Generator::Head()
+void CG::Generation::Head()
 {
 	out << ".586\n";
 	out << ".model flat, stdcall\n";
@@ -37,7 +35,7 @@ void CG::Generator::Head()
 	out << "\n.stack 4096\n";
 }
 
-void CG::Generator::Constants()
+void CG::Generation::Constants()
 {
 	out << ".const\n";
 	out << "\t_DIVISION_BY_ZERO_ERROR BYTE 'Ошибка выполнения: деление на ноль', 0\n";
@@ -53,7 +51,7 @@ void CG::Generator::Constants()
 		}
 }
 
-void CG::Generator::Data()
+void CG::Generation::Data()
 {
 	out << ".data\n";
 	for (int i = 0; i < idtable.size; i++)
@@ -68,7 +66,7 @@ void CG::Generator::Data()
 		}
 }
 
-void CG::Generator::Code()
+void CG::Generation::Code()
 {
 	out << "\n.code\n";
 	int indOfFunc = -1;
@@ -320,8 +318,16 @@ void CG::Generator::Code()
 		case LEX_IF: {
 			flagelse = 0;
 			operation = ' ';
-			out << "\tpush\t\t" << '_' << idtable.table[lextable.table[indOflex].idxTI].scope << idtable.table[lextable.table[i + 2].idxTI].id << "\n";
-			out << "\tpush\t\t" << '_' << idtable.table[lextable.table[indOflex].idxTI].scope << idtable.table[lextable.table[i + 4].idxTI].id << "\n";
+			if(lextable.table[i + 2].lexeme != LEX_LITERAL)
+				out << "\tpush\t\t" << '_' << idtable.table[lextable.table[indOflex].idxTI].scope << idtable.table[lextable.table[i + 2].idxTI].id << "\n";
+			else
+				out << "\tpush\t\t" << idtable.table[lextable.table[i + 2].idxTI].id << "\n";
+
+			if (lextable.table[i + 4].lexeme != LEX_LITERAL)
+				out << "\tpush\t\t" << '_' << idtable.table[lextable.table[indOflex].idxTI].scope << idtable.table[lextable.table[i + 4].idxTI].id << "\n";
+			else
+				out << "\tpush\t\t" << idtable.table[lextable.table[i + 4].idxTI].id << "\n";
+
 			out << "\tpop\t\tebx\n";
 			out << "\tpop\t\teax\n";
 			out << "\tcmp\t\teax, ebx\n";

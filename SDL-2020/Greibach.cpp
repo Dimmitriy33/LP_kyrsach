@@ -18,7 +18,7 @@ namespace GRB {
 			Rule::Chain(12, TS('t'), TS('f'), TS('i'), TS('('), TS(')'), TS('{'), NS('N'), TS('r'), NS('E'), TS(';'), TS('}'), NS('S'))
 		),
 		Rule(NS('N'), GRB_ERROR_SERIES + 1, // возможные конструкции в функциях
-			23,
+			25,
 			Rule::Chain(3, TS('t'), TS('i'), TS(';')),
 			Rule::Chain(3, TS('r'), NS('E'), TS(';')),
 			Rule::Chain(4, TS('i'), TS('='), NS('E'), TS(';')),
@@ -37,6 +37,8 @@ namespace GRB {
 			Rule::Chain(7, TS('p'), TS('c'), TS('('), NS('W'), TS(')'), TS(';'), NS('N')),
 			Rule::Chain(6, TS('p'), TS('c'), TS('('), NS('W'), TS(')'), TS(';')),
 
+			Rule::Chain(7, TS('p'), TS('x'), TS('('), NS('W'), TS(')'), TS(';'), NS('N')),
+			Rule::Chain(6, TS('p'), TS('x'), TS('('), NS('W'), TS(')'), TS(';')),
 
 			Rule::Chain(7, TS('d'), TS('f'), TS('x'), TS('('), NS('F'), TS(')'), TS(';') ),
 			Rule::Chain(8, TS('d'), TS('t'), TS('f'), TS('x'), TS('('), NS('F'), TS(')'), TS(';')),

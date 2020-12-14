@@ -115,5 +115,14 @@
     <Text Include="out.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="idtable.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="lextable.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="mfst.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

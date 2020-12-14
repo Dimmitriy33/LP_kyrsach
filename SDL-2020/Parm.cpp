@@ -44,5 +44,20 @@ Parm::PARM Parm::getparm(int argc, _TCHAR* argv[]) {
 		wcscat_s(p.log, PARM_LOG_DEFAULT_EXT);
 	}
 
+	if (!findSubstr(argc, argv, p.mfst, PARM_MFST)) {
+		wcscpy_s(p.mfst, inParm + wcslen(PARM_IN));
+		wcscat_s(p.mfst, PARM_TXT_DEFAULT_EXT);
+	}
+
+	if (!findSubstr(argc, argv, p.idtable, PARM_IDTABLE)) {
+		wcscpy_s(p.idtable, inParm + wcslen(PARM_IN));
+		wcscat_s(p.idtable, PARM_TXT_DEFAULT_EXT);
+	}
+
+	if (!findSubstr(argc, argv, p.lextable, PARM_LEXTABLE)) {
+		wcscpy_s(p.lextable, inParm + wcslen(PARM_IN));
+		wcscat_s(p.lextable, PARM_TXT_DEFAULT_EXT);
+	}
+
 	return p;
 }

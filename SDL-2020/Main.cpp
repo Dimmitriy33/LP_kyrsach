@@ -1,4 +1,3 @@
-
 #include "pch.h"
 #include "Error.h"
 #include "FST.h"
@@ -42,9 +41,9 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		#ifdef SYNTAX
 
-		MFST_TRACE_START
-			MFST::Mfst mfst(lextable, GRB::getGreibach());
+		MFST::Mfst mfst(lextable, GRB::getGreibach(), parm.mfst);
 		mfst.start(*log.stream);
+		mfst.printrules();
 		#endif // SYNTAX
 
 
@@ -60,21 +59,26 @@ int _tmain(int argc, _TCHAR* argv[]) {
 
 		#ifdef LEXEM
 
-		std::cout << "/ ==============############    Таблица лексем   ############==================== */\n";
-		std::cout << lextable.showLexTable();
+		std::ofstream lexT(parm.lextable);
+		lexT << "/ ==============############    Таблица лексем   ############==================== */\n";
+		lexT << lextable.showLexTable();
 
 		#endif // LEXEM
 
 		#ifdef IDENT
 
-		std::cout << "\n/ =============############    Таблица идентификаторов   ############=================== */\n";
-		std::cout << idtable.showIdTable();
+		std::ofstream idT(parm.idtable);
+		idT << "\n/ =============############    Таблица идентификаторов   ############=================== */\n";
+		idT << idtable.showIdTable();
 
 		#endif // IDENT
 
 		#ifdef GENERATION
-		CG::Generator CodeBuilder = CG::Generator(lextable, idtable, parm.out);
-		CodeBuilder.Start(log);
+		CG::Generation WriteToOut = CG::Generation(lextable, idtable, parm.out);
+		CG::Generation WriteToAsm = CG::Generation(lextable, idtable, L"../asm/asm.asm");
+		WriteToOut.Start(log);
+		*log.stream << "\n  ==============############             Код успешно сгенерирован           ############==============\n";
+		WriteToAsm.Start(log);
 		#endif // GENERATION
 
 

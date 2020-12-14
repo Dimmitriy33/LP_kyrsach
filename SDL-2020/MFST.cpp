@@ -27,10 +27,12 @@ MFST::Mfst::Mfst()
 	: tape(0), tape_size(0), tape_position(0), lex(LT::Create(0)), nrule(-1), nrulechain(-1)
 {	}
 
-MFST::Mfst::Mfst(LT::LexTable lex, GRB::Greibach greibach)
+MFST::Mfst::Mfst(LT::LexTable lex, GRB::Greibach greibach, const wchar_t file[PARM_MAX_SIZE])
 	: lex(lex), greibach(greibach), tape_position(0), nrule(-1), nrulechain(-1), tape_size(lex.size)
 {
 	tape = DBG_NEW short[tape_size];
+
+	printTrace.open(file);
 
 	for (int k = 0; k < tape_size; ++k) {
 		tape[k] = GRB::TS(lex.table[k].lexeme);
@@ -155,6 +157,9 @@ MFST::Mfst::RC_STEP MFST::Mfst::step() {
 }
 
 bool MFST::Mfst::start(std::ostream& outputStream) {
+	
+	MFST_TRACE_START;
+	
 	bool output = false;
 	RC_STEP rc_step = RC_STEP::SURPRISE;
 
@@ -165,7 +170,7 @@ bool MFST::Mfst::start(std::ostream& outputStream) {
 
 	switch (rc_step) {
 	case Mfst::RC_STEP::TAPE_END:
-		MFST_TRACE4("------>TAPE_END");
+		MFST_TRACE4("------>TAPE_END\n\n\n");
 		outputStream << "" << std::endl;
 		outputStream << "  ==============############   Синтаксический анализ выполнен без ошибок   ############==============\n";
 		outputStream << "" << std::endl;
@@ -190,7 +195,6 @@ bool MFST::Mfst::start(std::ostream& outputStream) {
 		MFST_TRACE4("------>SURPRISE");
 		break;
 	}
-
 	return output;
 }
 

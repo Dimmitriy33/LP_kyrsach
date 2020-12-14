@@ -43,7 +43,7 @@ void Log::WriteLog(LOG log) {
 	localtime_s(&currentTime, &now);
 	strftime(timeBuffer, sizeof(timeBuffer), "%c", &currentTime);
 
-	*log.stream << "---- Протокол ------ Дата: " << timeBuffer << " ------------" << std::endl;
+	*log.stream << " ------- Протокол ------\n ------- Дата: " << timeBuffer << " ---------" << std::endl;
 }
 
 void outputConverted(Log::LOG& log, wchar_t(&source)[PARM_MAX_SIZE], const wchar_t* key) {
@@ -59,6 +59,9 @@ void Log::WriteParm(LOG log, Parm::PARM parm) {
 	outputConverted(log, parm.log, PARM_LOG);
 	outputConverted(log, parm.out, PARM_OUT);
 	outputConverted(log, parm.in, PARM_IN);
+	outputConverted(log, parm.mfst, PARM_MFST);
+	outputConverted(log, parm.lextable, PARM_LEXTABLE);
+	outputConverted(log, parm.idtable, PARM_IDTABLE);
 }
 
 void Log::WriteIn(LOG log, In::IN in) {

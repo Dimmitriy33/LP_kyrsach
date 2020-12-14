@@ -18,14 +18,15 @@ _outInt PROTO : DWORD
 	L2 DWORD 5
 	L3 BYTE 'numone more then numtwo', 0
 	L4 BYTE 'numone equal numtwo', 0
-	L5 BYTE 'numone not equal numtwo', 0
-	L6 BYTE 'sum of operations is', 0
-	L7 BYTE 'dmitriy', 0
-	L8 BYTE 'not dmitriy', 0
-	L9 BYTE 'dmitriy equal dmitriy', 0
-	L10 BYTE 'dmitriy equal not dmitriy', 0
-	L11 BYTE 'length of dmitriy', 0
-	L12 DWORD 0
+	L5 BYTE 's', 0
+	L6 BYTE 'numone not equal numtwo', 0
+	L7 BYTE 'sum of operations is', 0
+	L8 BYTE 'dmitriy', 0
+	L9 BYTE 'not dmitriy', 0
+	L10 BYTE 'dmitriy equal dmitriy', 0
+	L11 BYTE 'dmitriy equal not dmitriy', 0
+	L12 BYTE 'length of dmitriy', 0
+	L13 DWORD 0
 .data
 	_operationssumresult		DWORD 0 ; bzint
 	_mainnameone		DWORD 0 ; str
@@ -90,8 +91,8 @@ main PROC
 	push		offset L3
 	pop			_maintemp
 
-	push		_maintemp
-	call		_out
+	push		L1
+	call		_outInt
 
 FALSE26: 
 	push		_mainnumone
@@ -105,12 +106,12 @@ TRUE31:
 	push		offset L4
 	pop			_maintemp
 
-	push		_maintemp
+	push		offset L5
 	call		_out
 
 	jmp		IFOUT31
 FALSE31: 
-	push		offset L5
+	push		offset L6
 	pop			_maintemp
 
 	push		_maintemp
@@ -173,7 +174,7 @@ NOTEQUAL44:
 EQUAL44:
 	pop			_mainnotequal
 
-	push		offset L6
+	push		offset L7
 	pop			_maintemp
 
 	push		_mainlessorequal
@@ -190,10 +191,10 @@ EQUAL44:
 	push		_mainsum
 	call		_outInt
 
-	push		offset L7
+	push		offset L8
 	pop			_mainnameone
 
-	push		offset L8
+	push		offset L9
 	pop			_mainnametwo
 
 	push		_mainnameone
@@ -202,7 +203,7 @@ EQUAL44:
 	push		eax
 	pop			_maincomp
 
-	push		offset L9
+	push		offset L10
 	pop			_maintemp
 
 	push		_maintemp
@@ -217,7 +218,7 @@ EQUAL44:
 	push		eax
 	pop			_maincomp
 
-	push		offset L10
+	push		offset L11
 	pop			_maintemp
 
 	push		_maintemp
@@ -226,7 +227,7 @@ EQUAL44:
 	push		_maincomp
 	call		_outInt
 
-	push		offset L11
+	push		offset L12
 	pop			_maintemp
 
 	push		_maintemp
@@ -240,7 +241,7 @@ EQUAL44:
 	push		_mainstrlength
 	call		_outInt
 
-	push		L12
+	push		L13
 	call		ExitProcess
 main ENDP
 end main

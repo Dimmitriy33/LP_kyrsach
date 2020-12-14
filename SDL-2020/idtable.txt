@@ -1,0 +1,41 @@
+
+/ =============############    Таблица идентификаторов   ############=================== */
+index                name               scope      type   id type      lexTable index
+   0       operationssum                        bzint         f               2
+   1                   x       operationssum    bzint         p              23
+   2                   y       operationssum    bzint         p              24
+   3                   z       operationssum    bzint         p              26
+   4                   m       operationssum    bzint         p              28
+   5              result       operationssum    bzint         v              32
+   6                main                        bzint         f              36
+   7             compare                        bzint         f              41
+   8                   a         maincompare      str         p              44
+   9                   b         maincompare      str         p              47
+  10               strln                        bzint         f              53
+  11                   p           mainstrln      str         p              56
+  12             nameone                main      str         v             253
+  13             nametwo                main      str         v             230
+  14                temp                main      str         v             249
+  15              numone                main    bzint         v             179
+  16              numtwo                main    bzint         v             180
+  17                comp                main    bzint         v             242
+  18           strlength                main    bzint         v             258
+  19         lessorequal                main    bzint         v             189
+  20         moreorequal                main    bzint         v             190
+  21                less                main    bzint         v             191
+  22            notequal                main    bzint         v             195
+  23                 sum                main    bzint         v             200
+  24                  L0                          str         l             109
+  25                  L1                        bzint         l             131
+  26                  L2                        bzint         l             117
+  27                  L3                          str         l             128
+  28                  L4                          str         l             143
+  29                  L5                          str         l             146
+  30                  L6                          str         l             153
+  31                  L7                          str         l             185
+  32                  L8                          str         l             204
+  33                  L9                          str         l             208
+  34                 L10                          str         l             219
+  35                 L11                          str         l             236
+  36                 L12                          str         l             246
+  37                 L13                        bzint         l             261

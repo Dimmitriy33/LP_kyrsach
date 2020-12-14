@@ -61,7 +61,7 @@ Error::ERROR errors[ERROR_MAX_ENTRY] = {
 	ERROR_ENTRY(705, "Несоответствие возвращаемого и присваемого типов данных"),
 	ERROR_ENTRY(706, "Несоответсвие присваимаего типа данных"),
 	ERROR_ENTRY(707, "Несоответствие типа функции и возвращаемого значения"),
-	ERROR_ENTRY(708, "Main Должен возвращать числовое значение"),
+	ERROR_ENTRY(708, "main должен возвращать числовое значение"),
 	ERROR_ENTRY(709, "Использование имени переменной в качестве функции"),
 	ERROR_ENTRY(710, "Ошибка в выражении цикла"),
 	ERROR_ENTRY_NODEF(711), ERROR_ENTRY_NODEF(712), ERROR_ENTRY_NODEF(713),ERROR_ENTRY_NODEF(714),ERROR_ENTRY_NODEF(715),
