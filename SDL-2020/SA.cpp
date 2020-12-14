@@ -96,7 +96,7 @@ void SA::SemanticAnalyzer::ParmsOfStandFunc()
 			int parmsCount = 0;
 			while (lextable.table[i].lexeme != LEX_SEMICOLON) {
 				i++;
-				if (lextable.table[i].lexeme == LEX_ID) {
+				if (lextable.table[i].lexeme == LEX_ID || lextable.table[i].lexeme == LEX_LITERAL) {
 					parmsCount++;
 					if (idtable.table[lextable.table[i].idxTI].iddatatype != IT::IDDATATYPE::STR)
 						throw ERROR_THROW_SEM(702, lextable.table[i].sn);
@@ -110,7 +110,7 @@ void SA::SemanticAnalyzer::ParmsOfStandFunc()
 			int parmsCount = 0;
 			while (lextable.table[i].lexeme != LEX_SEMICOLON) {
 				i++;
-				if (lextable.table[i].lexeme == LEX_ID) {
+				if (lextable.table[i].lexeme == LEX_ID || lextable.table[i].lexeme == LEX_LITERAL) {
 					parmsCount++;
 					if (idtable.table[lextable.table[i].idxTI].iddatatype != IT::IDDATATYPE::STR)
 						throw ERROR_THROW_SEM(702, lextable.table[i].sn);

@@ -71,7 +71,7 @@ void CG::Generation::Code()
 	bool func = false;
 	bool main = false;
 	int stackRet = 0;
-	int Ifsn;
+	int Ifsn = 0;
 	int flagelse = 0;
 	char operation;
 	for (int i = 0; i < lextable.size; i++) {
